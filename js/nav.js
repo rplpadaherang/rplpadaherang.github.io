@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.status !== 200) return;
 
         // Muat daftar menu
-        document.querySelectorAll(".topnav, .sidenav").forEach(function (elm) {
-          elm.innerHTML = xhttp.responseText;
-        });
+        document.querySelectorAll(".topnav, .sidenav").forEach(
+          elm => elm.innerHTML = xhttp.responseText
+        );
 
         // Daftarkan event listener untuk setiap menu
         document

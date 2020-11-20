@@ -53,7 +53,7 @@ var getStandings = () => {
 }
 
 var Standings = (data) => {
-  var str = JSON.stringify(data).replace(/http:/g, 'https:');
+  let str = JSON.stringify(data).replace(/http:/g, 'https:');
   data = JSON.parse(str);
   var html = ''
   data.standings.forEach(standing => {
@@ -62,7 +62,7 @@ var Standings = (data) => {
       detail += `
             <tr>
             <td>${result.position}</td>
-            <td><img class="responsive-img" width="32" height="32" src="${ result.team.crestUrl.replace(/^http:\/\//i, 'https://') || 'img/empty_badge.svg'}"> </td>
+            <td><img class="responsive-img" width="32" height="32" alt="Logo Team" src="${ result.team.crestUrl.replace(/^http:\/\//i, 'https://') || 'img/empty_badge.svg'}"> </td>
             <td>${result.team.name}</td>
             <td>${result.playedGames}</td>
             <td>${result.won}</td>
@@ -124,7 +124,7 @@ var getMatches = () => {
 }
 var Matches = (data) => {
   DataMatch = data;
-  var str = JSON.stringify(data).replace(/http:/g, 'https:');
+  let str = JSON.stringify(data).replace(/http:/g, 'https:');
   data = JSON.parse(str);
 
   var html = ''
@@ -211,7 +211,7 @@ var SaveMatch = () => {
 
     // Notifikasi jika belum ada data yang disimpan
     if (data.length === 0) {
-      return document.getElementById("save-match").innerHTML = `<h4>Anda Belum menyimpan tim favorite</h4>`;
+      return document.getElementById("save-match").innerHTML = `<h5>Anda Belum menyimpan tim favorite</h5>`;
     }
     data.forEach(match => {
       html += `
